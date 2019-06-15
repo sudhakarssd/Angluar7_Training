@@ -5,7 +5,10 @@
 <fieldset>
 <p>Name *</p>
 <div>
-  <input name="cname" [(ngModel)]="temp.name" required minlength="3" #nameCtrl="ngModel"/>
+  <input name="cname" [(ngModel)]="temp.name" 
+                required minlength="3"
+                [forbiddenNames]="['admin','manager']"
+                #nameCtrl="ngModel"/>
   <span [hidden]="nameCtrl.valid">
     The field is required with a minlength of 3.
   </span>

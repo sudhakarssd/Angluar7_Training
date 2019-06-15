@@ -11,6 +11,7 @@
       <th>Id</th>
       <th>Name</th>
       <th>Location</th>
+      <th>Operations</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,7 @@
         <td>
           <a href="" (click)="delete($event,i,cust)"> Delete</a>
           <a href="" (click)="edit($event,cust)"> Edit</a>
+          <a routerLink="{{cust.id}}">Details</a>
         </td>
     </tr>
     <tr>

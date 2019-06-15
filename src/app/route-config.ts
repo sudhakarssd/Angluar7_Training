@@ -1,0 +1,14 @@
+import {Routes} from '@angular/router';
+import { HelloComponent } from './hello.component';
+import { DataBindingComponent } from './data-binding.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import {AuthGuardService} from './app-shared/auth-guard.service'
+
+export const routes:Routes=[
+
+    {path: "home", component:HelloComponent},
+    {path: "binding", component:DataBindingComponent,canActivate:[AuthGuardService]},
+    {path: "rxjs", component:RxjsComponent},
+    {path:"",redirectTo:"/home",pathMatch:"full"},
+    {path:"**",component:DataBindingComponent}
+]

@@ -9,6 +9,7 @@
           <mat-error *ngIf="registerFormGroup.get('userName').hasError('required')">This field is required.</mat-error>
           <mat-error *ngIf="registerFormGroup.get('userName').hasError('minLength')">Minimum character required is 3 .</mat-error>
           <mat-error *ngIf="registerFormGroup.get('userName').hasError('forbidden')">UserName is not allowed</mat-error>
+          <mat-error *ngIf="registerFormGroup.get('userName').hasError('uniqueName')">UserName already used</mat-error>
         </mat-form-field>
       
         <mat-form-field appearance="outline">

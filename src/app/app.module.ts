@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UsersModule } from './users/users.module';
 import { AppSharedModule } from './app-shared/app-shared.module';
+import {RouterModule} from '@angular/router';
+import {routes} from './route-config'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { AppSharedModule } from './app-shared/app-shared.module';
     HttpClientModule, 
     BrowserAnimationsModule,
     UsersModule,
-    AppSharedModule
+    AppSharedModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   //bootstrap: [AppComponent,HelloComponent]

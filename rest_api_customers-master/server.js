@@ -149,6 +149,18 @@ app.get("/search", function(req, resp){
        }
        
 })
+//http://localhost:9000/checkName?name=abc
+app.get("/checkname",function(req,resp){
+    const name = req.query.name;
+    if(!name.startsWith("x")){
+        return resp.json({valid: true});    
+        console.log("true");
+    }
+    else{
+        return resp.json({valid: false});    
+        console.log("false");
+    }
+});
 
 app.listen(port);
 
