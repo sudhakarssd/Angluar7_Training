@@ -1,0 +1,45 @@
+<h2>Customers</h2>
+
+<p>
+  <input type="search" placeholder="Search" [(ngModel)]="searchKey" />
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cust of data | custFilter:searchKey; index as i; odd as odd; even as even" [ngClass]="{oddCls: odd, evenCls: even}" >
+        <td>{{i}}</td>
+        <td>{{cust.id}}</td>
+        <td>{{cust.name}}</td>
+        <td>{{cust.location}}</td>
+        <td>
+          <a href="" (click)="delete($event,i,cust)"> Delete</a>
+          <a href="" (click)="edit($event,cust)"> Edit</a>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="save();">Save</button>
+      </td>
+      <td>
+        <input type="number" placeholder="ID" [(ngModel)]="customer.id" />
+      </td>
+      <td>
+        <input type="text" placeholder="Name" [(ngModel)]="customer.name" />
+      </td>
+      <td>       
+        <input type="text" placeholder="Location" [(ngModel)]="customer.location" >
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="selectedCustomer">
+    <app-edit [customer]="selectedCustomer" (saved)="editComplete($event);" (cancelled)="editCancelled($event);"></app-edit>
+</div>

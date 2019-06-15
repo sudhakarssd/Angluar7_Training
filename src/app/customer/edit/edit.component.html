@@ -1,0 +1,28 @@
+<h3>Editing Customer: {{customer.id}}</h3>
+<form #myForm="ngForm">
+
+
+<fieldset>
+<p>Name *</p>
+<div>
+  <input name="cname" [(ngModel)]="temp.name" required minlength="3" #nameCtrl="ngModel"/>
+  <span [hidden]="nameCtrl.valid">
+    The field is required with a minlength of 3.
+  </span>
+</div>
+
+<p>Location</p>
+<input name="clocation" [(ngModel)]="temp.location" required pattern="[a-zA-Z]{3,}" #locCtrl="ngModel" />
+<span [hidden]="!locCtrl.hasError('required')">
+  The field is required
+</span>
+<span [hidden]="!locCtrl.hasError('pattern')">
+  Invalid pattern
+</span>
+
+<div>
+  <button (click)="save();" [disabled]="myForm.pristine || myForm.invalid" >Save</button>
+  <button (click)="cancel();">Cancel</button>
+</div>
+</fieldset>
+</form>

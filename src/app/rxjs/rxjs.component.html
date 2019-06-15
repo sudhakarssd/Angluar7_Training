@@ -1,0 +1,14 @@
+<h3> Reactive </h3>
+<div>
+  <input type="search" placeholder="search" [formControl]='searchFormControl' />
+</div>
+<!-- <div class="listResults">
+  <div *ngFor="let result of searchResults">
+    <p>{{result}}</p>  
+  </div>
+</div> -->
+<div class="listResults">
+<div *ngFor="let item of searchObserver | async; index as i;">
+  <p>{{i+1}} - {{item}}</p>  
+</div>
+</div>

@@ -1,0 +1,40 @@
+<h3>Data Binding</h3>
+<p>
+    Show/Hide <input type="checkbox" #ctrl [ngModel]/>{{ctrl.checked}}
+</p>
+
+<div [hidden]="!ctrl.checked">
+
+    <div>
+        <h4>Interploation</h4>
+        Name: {{user.firstName+" "+user.lastName}}
+    </div>
+
+    <div>
+        <h4>Property Binding</h4>
+        Count: <input type="number" [value]="count" />
+        <p>
+            count: {{count}}
+        </p>
+        <h4>Event Binding</h4>
+        <button (click)="inc($event);"> Increment</button>
+    </div>
+    <div>
+        <h4>2-Way Binding</h4>
+        Message: <input [(ngModel)]="message">
+        <p>
+            Message: {{message}}
+        </p>
+    </div>
+
+    <div>
+        Message:
+        <input type="text" [(ngModel)]="message" [ngModelOptions]="{updatedOn: 'blur'}" #msgCtrl />
+        {{msgCtrl.value}}
+        <p>{{message}}</p>
+        <p>
+        Count (2-way) <input type="number" [value]="count" (blur)="count=$event.target.value" />
+        </p>
+    </div>
+
+</div>
