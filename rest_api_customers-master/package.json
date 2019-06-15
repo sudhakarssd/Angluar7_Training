@@ -1,0 +1,20 @@
+{
+  "name": "customerapi",
+  "version": "1.0.0",
+  "description": "Sample REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Anil Joseph",
+  "license": "ISC",
+  "devDependencies": {
+    "nodeman": "^1.1.2",
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "fs": "0.0.1-security"
+  }
+}

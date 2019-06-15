@@ -1,0 +1,40 @@
+<h4>Register</h4>
+
+<form [formGroup]="registerFormGroup">
+    <div class="container">
+        <mat-form-field appearance="outline">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="username" formControlName="userName" />
+          <mat-hint>Enter the preferred user name</mat-hint>
+          <mat-error *ngIf="registerFormGroup.get('userName').hasError('required')">This field is required.</mat-error>
+          <mat-error *ngIf="registerFormGroup.get('userName').hasError('minLength')">Minimum character required is 3 .</mat-error>
+          <mat-error *ngIf="registerFormGroup.get('userName').hasError('forbidden')">UserName is not allowed</mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="*****" formControlName="passWord" />
+            <mat-hint>Enter the Secret code</mat-hint>
+            <mat-error *ngIf="registerFormGroup.get('passWord').hasError('required')" >This field is required.</mat-error>
+            <mat-error *ngIf="registerFormGroup.get('passWord').hasError('pattern')">Invalid pattern.</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput placeholder="abc@xyz.com"  formControlName="email" />
+              <mat-hint>Enter the work/personal email</mat-hint>
+              <mat-error *ngIf="registerFormGroup.get('email').hasError('required')" >Email is mandatory.</mat-error>
+              <mat-error *ngIf="registerFormGroup.get('email').hasError('email')" >Email is incorrect.</mat-error>
+              
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input matInput placeholder="999999999999" formControlName="contactNo" />
+                <mat-hint>Enter the Mobile no.</mat-hint>
+              </mat-form-field>
+              <div>
+                  <button mat-raised-button color="primary"(click)='register()'>Register</button>
+                  <button mat-raised-button color="primary">Login</button>
+              </div>
+      </div>
+</form>

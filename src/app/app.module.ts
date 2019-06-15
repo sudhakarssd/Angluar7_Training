@@ -9,16 +9,27 @@ import { DataBindingComponent } from './data-binding.component';
 import { CustomerModule } from './customer/customer.module';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import {HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersModule } from './users/users.module';
+import { AppSharedModule } from './app-shared/app-shared.module';
 
 @NgModule({
   declarations: [
     AppComponent, HelloComponent,HeaderComponent,DataBindingComponent, RxjsComponent
   ],
   imports: [
-    BrowserModule,FormsModule,CustomerModule,ReactiveFormsModule, HttpClientModule
+    BrowserModule,
+    FormsModule,
+    CustomerModule,
+    ReactiveFormsModule, 
+    HttpClientModule, 
+    BrowserAnimationsModule,
+    UsersModule,
+    AppSharedModule
   ],
   providers: [],
   //bootstrap: [AppComponent,HelloComponent]
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
