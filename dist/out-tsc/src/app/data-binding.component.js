@@ -1,5 +1,5 @@
 import * as tslib_1 from "tslib";
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 var DataBindingComponent = /** @class */ (function () {
     function DataBindingComponent() {
         this.user = { firstName: "Sudhakar", lastName: "Dasoju" };
@@ -13,7 +13,8 @@ var DataBindingComponent = /** @class */ (function () {
     DataBindingComponent = tslib_1.__decorate([
         Component({
             selector: "data-binding",
-            templateUrl: './data-binding.component.html'
+            templateUrl: './data-binding.component.html',
+            changeDetection: ChangeDetectionStrategy.OnPush
         }),
         tslib_1.__metadata("design:paramtypes", [])
     ], DataBindingComponent);

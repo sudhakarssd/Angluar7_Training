@@ -8,19 +8,27 @@ import { CustFilterPipe } from './cust-filter.pipe';
 import { DataService } from './services/data-service';
 import { CustomerDataService } from './services/customer-data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppSharedModule } from '../app-shared/app-shared.module';
+import { RouterModule } from '@angular/router';
+import { DetailsComponent } from './details/details.component';
+import { AuthGuardService } from '../app-shared/auth-guard.service';
+var routes = [
+    { path: "customers", component: ListComponent, canActivate: [AuthGuardService] },
+    { path: "customers/:id", component: DetailsComponent, canActivate: [AuthGuardService] }
+];
 var CustomerModule = /** @class */ (function () {
     function CustomerModule() {
     }
     CustomerModule = tslib_1.__decorate([
         NgModule({
-            declarations: [ListComponent, EditComponent, CustFilterPipe],
+            declarations: [ListComponent, EditComponent, CustFilterPipe, DetailsComponent],
             //imports will always be modules
             imports: [
-                CommonModule, FormsModule, HttpClientModule
+                CommonModule, FormsModule, HttpClientModule, AppSharedModule, RouterModule.forChild(routes)
             ],
             //Only components,pipes except module
             //To use component of one module to another module 
-            exports: [ListComponent],
+            //exports:[ListComponent],
             providers: [{ provide: DataService, useClass: CustomerDataService }]
         })
     ], CustomerModule);

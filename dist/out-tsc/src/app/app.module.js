@@ -8,19 +8,34 @@ import { HeaderComponent } from './header.component';
 import { DataBindingComponent } from './data-binding.component';
 import { CustomerModule } from './customer/customer.module';
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersModule } from './users/users.module';
+import { AppSharedModule } from './app-shared/app-shared.module';
+import { RouterModule } from '@angular/router';
+import { routes } from './route-config';
+import { XsrfInterceptorService } from './app-shared/xsrf-interceptor.service';
+import { ChangeDetectionComponent, SimpleComponent } from './change-detection/change-detection.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib_1.__decorate([
         NgModule({
             declarations: [
-                AppComponent, HelloComponent, HeaderComponent, DataBindingComponent, RxjsComponent
+                AppComponent, HelloComponent, HeaderComponent, DataBindingComponent, RxjsComponent, ChangeDetectionComponent, SimpleComponent
             ],
             imports: [
-                BrowserModule, FormsModule, CustomerModule, ReactiveFormsModule, HttpClientModule
+                BrowserModule,
+                FormsModule,
+                CustomerModule,
+                ReactiveFormsModule,
+                HttpClientModule,
+                BrowserAnimationsModule,
+                UsersModule,
+                AppSharedModule,
+                RouterModule.forRoot(routes)
             ],
-            providers: [],
+            providers: [{ provide: HTTP_INTERCEPTORS, useClass: XsrfInterceptorService, multi: true }],
             //bootstrap: [AppComponent,HelloComponent]
             bootstrap: [AppComponent]
         })

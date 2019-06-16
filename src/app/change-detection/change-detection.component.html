@@ -1,0 +1,8 @@
+<p>
+  change-detection works!
+</p>
+<p>Counter: {{counter}}</p>
+<button (click)="change();">Change Color</button>
+<div *ngFor="let item of data">
+    <simple [simpleData]="item"></simple>
+</div>

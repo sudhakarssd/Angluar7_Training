@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  customer_api_url : "http://localhost:9000/customers"
+  customer_api_url : "http://localhost:9000/customers",
+  login_api_url : "http://localhost:9090/login"
 };
 
 /*

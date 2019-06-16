@@ -22,7 +22,7 @@ describe('AppComponent', function () {
         var fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         var compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('h1').textContent).toContain('Welcome to AngularApp!');
+        expect(compiled.querySelector('h1').textContent).toContain('Welcome to ANGULARAPP!');
     });
 });
 //# sourceMappingURL=app.component.spec.js.map

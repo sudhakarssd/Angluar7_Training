@@ -1,3 +1,20 @@
 <p>
   login works!
 </p>
+<form [formGroup]="formGroup">
+  <p>
+    UserName: <input formControlName="username">
+  </p>
+  <p>
+    Password: <input type="password" formControlName="password">
+  </p>
+  <p>
+    <button (click)="login();" >Login</button>
+  </p>
+</form>
+<div>
+    {{message}}
+</div>
+<div [innerHtml]="message">
+</div>
+<button (click)="change();">Dom Sanitize</button>

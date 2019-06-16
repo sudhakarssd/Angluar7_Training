@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 export var environment = {
     production: false,
-    customer_api_url: "http://localhost:9000/customers"
+    customer_api_url: "http://localhost:9000/customers",
+    login_api_url: "http://localhost:9090/login"
 };
 /*
  * For easier debugging in development mode, you can import the following file
